@@ -17,20 +17,18 @@
         .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
         .glass { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.3); }
         .dark .glass { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .admin-only { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex items-center justify-center transition-colors">
 
-    <!-- شاشة الدخول -->
     <div id="login-screen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md">
         <div class="glass p-8 rounded-3xl w-full max-w-md shadow-2xl text-center">
             <div class="w-20 h-20 bg-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             </div>
             <h1 class="text-2xl font-bold mb-2">تجمع مستقبل العراق</h1>
-            <p class="text-slate-500 dark:text-slate-400 mb-8">ساحة حوار حرة لمستقبل أفضل</p>
+            <p class="text-slate-500 dark:text-slate-400 mb-8 text-sm">أهلاً بك في منصة حوار الشباب العراقي</p>
             <input type="text" id="username-input" placeholder="اكتب اسمك المستعار..." 
                 class="w-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500 outline-none mb-4 transition-all text-center">
             <button onclick="join()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition-all active:scale-95 shadow-lg shadow-blue-500/20">
@@ -39,48 +37,45 @@
         </div>
     </div>
 
-    <!-- التطبيق الرئيسي -->
     <div id="app" class="hidden w-full max-w-4xl h-[95vh] flex flex-col glass rounded-3xl shadow-2xl overflow-hidden m-2 md:m-4">
-        <!-- الهيدر -->
         <header class="p-4 border-b border-slate-200 dark:border-white/10 flex justify-between items-center bg-white/20 dark:bg-black/10">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                    </svg>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
-                <div>
-                    <h2 class="font-bold text-lg leading-tight">تجمع مستقبل العراق</h2>
+                <div class="overflow-hidden">
+                    <h2 class="font-bold text-sm md:text-lg leading-tight truncate">تجمع مستقبل العراق</h2>
                     <p class="text-[10px] text-green-500 flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> مباشر الآن
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> مباشر
                     </p>
                 </div>
             </div>
             
-            <div class="flex items-center gap-2">
-                <!-- زر الوضع الليلي -->
-                <button onclick="toggleTheme()" class="p-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+            <div class="flex items-center gap-1 md:gap-2">
+                <button id="clear-btn" onclick="clearChat()" class="admin-only p-2 bg-red-500/20 text-red-500 rounded-xl hover:bg-red-500 hover:text-white transition-all text-xs font-bold">
+                    مسح الكل
+                </button>
+                <button onclick="promptAdmin()" class="p-2 text-slate-400 hover:text-blue-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                </button>
+                <button onclick="toggleTheme()" class="p-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-500">
                     <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z" /></svg>
                     <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                 </button>
-                <div id="my-name" class="hidden md:block text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-600 px-3 py-1 rounded-full"></div>
             </div>
         </header>
 
-        <!-- منطقة الرسائل -->
         <main id="chat-box" class="flex-1 overflow-y-auto p-4 md:p-6 flex flex-col gap-4 custom-scrollbar bg-white/5">
-            <!-- رسالة ترحيب -->
-            <div class="text-center my-8">
-                <span class="bg-slate-200 dark:bg-slate-800 text-[10px] px-4 py-1 rounded-full text-slate-500">بداية الدردشة المشفرة</span>
+            <div id="status-msg" class="text-center my-4">
+                <span class="bg-slate-200 dark:bg-slate-800 text-[9px] px-3 py-1 rounded-full text-slate-500 uppercase font-bold tracking-widest">نظام الحذف التلقائي مفعل (3 ساعات)</span>
             </div>
         </main>
 
-        <!-- منطقة الإدخال -->
         <footer class="p-4 bg-white/30 dark:bg-black/20 border-t border-slate-200 dark:border-white/10">
             <form id="send-form" class="flex gap-2 max-w-4xl mx-auto">
-                <input type="text" id="msg-input" autocomplete="off" placeholder="اكتب رسالتك للمستقبل..." 
-                    class="flex-1 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-2xl shadow-lg transition-transform active:scale-90">
+                <input type="text" id="msg-input" autocomplete="off" placeholder="اكتب شيئاً للمستقبل..." 
+                    class="flex-1 p-3 md:p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm shadow-inner">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 md:px-6 rounded-2xl shadow-lg transition-transform active:scale-90 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                 </button>
             </form>
@@ -88,7 +83,6 @@
     </div>
 
     <script>
-        // --- الإعدادات (نفس معلوماتك الأصلية) ---
         const config = {
             apiKey: "AIzaSyAhZxGAYQi2zhYwLlgfv2EWHUvCcxCf43I",
             authDomain: "mychat-76a2b.firebaseapp.com",
@@ -100,8 +94,23 @@
         const db = firebase.database();
         const msgRef = db.ref('messages');
         let user = "";
+        const ADMIN_PIN = "2025"; 
 
-        // --- نظام الثيم ---
+        function promptAdmin() {
+            const pin = prompt("أدخل الرمز السري للإدارة:");
+            if (pin === ADMIN_PIN) {
+                document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'block');
+            } else if (pin !== null) {
+                alert("رمز خاطئ! ❌");
+            }
+        }
+
+        function clearChat() {
+            if (confirm("سيتم حذف جميع الرسائل من السيرفر ولن يراها أحد بعد الآن. هل أنت متأكد؟")) {
+                msgRef.remove();
+            }
+        }
+
         function toggleTheme() {
             const isDark = document.documentElement.classList.toggle('dark');
             document.getElementById('sun-icon').classList.toggle('hidden', !isDark);
@@ -115,27 +124,24 @@
             document.getElementById('moon-icon').classList.add('hidden');
         }
 
-        // --- وظائف الشات ---
         function join() {
             const input = document.getElementById('username-input');
             if (input.value.trim()) {
                 user = input.value.trim();
                 document.getElementById('login-screen').classList.add('hidden');
                 document.getElementById('app').classList.remove('hidden');
-                document.getElementById('my-name').innerText = user;
                 startApp();
             }
         }
 
         function startApp() {
-            cleanupMessages(); // حذف الرسائل القديمة عند الدخول
+            cleanupOldMessages();
             loadMessages();
         }
 
-        // حذف الرسائل التي مضى عليها أكثر من 3 ساعات
-        function cleanupMessages() {
-            const threeHoursAgo = Date.now() - (3 * 60 * 60 * 1000);
-            msgRef.orderByChild('timestamp').endAt(threeHoursAgo).once('value', snapshot => {
+        function cleanupOldMessages() {
+            const expiryTime = Date.now() - (3 * 60 * 60 * 1000);
+            msgRef.orderByChild('timestamp').endAt(expiryTime).once('value', snapshot => {
                 snapshot.forEach(child => child.ref.remove());
             });
         }
@@ -155,30 +161,48 @@
 
         function loadMessages() {
             const box = document.getElementById('chat-box');
-            msgRef.limitToLast(50).on('child_added', snap => {
+            
+            // مراقبة التغييرات الكلية (للحذف)
+            msgRef.on('value', snapshot => {
+                if (!snapshot.exists()) {
+                    // إذا انمسحت البيانات، فرغ الواجهة فوراً عند الكل
+                    const statusMsg = document.getElementById('status-msg').outerHTML;
+                    box.innerHTML = statusMsg + '<div class="text-center my-8 text-slate-400 text-xs italic">الدردشة فارغة حالياً.. ابدأ الحوار الآن!</div>';
+                }
+            });
+
+            // مراقبة إضافة رسائل جديدة
+            msgRef.limitToLast(100).on('child_added', snap => {
                 const data = snap.val();
-                const isMe = data.u === user;
-                const div = document.createElement('div');
-                div.className = `flex flex-col ${isMe ? 'items-end' : 'items-start'} message-animate`;
-                
-                div.innerHTML = `
-                    <span class="text-[9px] font-bold text-slate-400 mb-1 px-2 uppercase tracking-tighter">${data.u}</span>
-                    <div class="px-4 py-2.5 rounded-2xl shadow-sm text-sm ${isMe ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 rounded-tl-none border border-slate-200 dark:border-slate-800'}">
-                        ${escape(data.t)}
-                    </div>
-                `;
-                box.appendChild(div);
+                if (box.innerText.includes("الدردشة فارغة")) {
+                     const statusMsg = document.getElementById('status-msg').outerHTML;
+                     box.innerHTML = statusMsg;
+                }
+                renderMessage(data, data.u === user);
                 box.scrollTop = box.scrollHeight;
             });
         }
 
-        function escape(s) {
+        function renderMessage(data, isMe) {
+            const box = document.getElementById('chat-box');
+            const div = document.createElement('div');
+            div.className = `flex flex-col mb-2 ${isMe ? 'items-end' : 'items-start'} message-animate`;
+            
+            div.innerHTML = `
+                <span class="text-[9px] font-bold text-slate-500 dark:text-slate-400 mb-0.5 px-2">${data.u}</span>
+                <div class="px-4 py-2.5 rounded-2xl shadow-sm text-sm ${isMe ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 rounded-tl-none border border-slate-200 dark:border-slate-800'}">
+                    ${escapeHTML(data.t)}
+                </div>
+            `;
+            box.appendChild(div);
+        }
+
+        function escapeHTML(s) {
             let d = document.createElement('div');
             d.textContent = s;
             return d.innerHTML;
         }
 
-        // دعم زر الانتر
         document.getElementById('username-input').addEventListener('keypress', e => { if(e.key==='Enter') join(); });
     </script>
 </body>
